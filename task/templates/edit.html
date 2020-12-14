@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>編集ページ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="{%static 'css/edit.css'%}" type="text/css">
+</head>
+<body>
+<div class="wrap">
+
+    <div class="ui container main">
+        <h1 id="title" class="ui center aligned header">新しいタスク名</h1>
+        <form method="POST" class="ui form">
+            {% csrf_token %}
+            <div class="ifeld">
+                {{form.content}}
+                <br>
+                <div class="btn_box">
+                    <button class="ui teal button" id="edit" type="submit" style="margin-top: 10px;">変更</button>
+                    <a href="/" class="ui red button">戻る</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer id="footer">
+        <p id="copy">
+            <a href="https://twitter.com/hola_soy_naoki" target="_blank">&copy; HolaSoyNaoki 2020</a>
+        </p>
+    </footer>
+</div>
+</body>
+</html>

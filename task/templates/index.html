@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Todo リスト - あなただけのTodoリストを作ろう -</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="{%static 'css/index.css'%}" type="text/css">
+</head>
+<body>
+<div class="wrap">
+
+    <div class="ui container main">
+        <h1 id="title" class="ui center aligned header">Todo リスト</h1>
+
+        <form class="ui form" action="/todo_post/" method="POST">
+            {% csrf_token %}
+            <div class="field">
+                <label for="title">タスク名</label>
+                <input type="text" name="content" placeholder="タスクを入力...">
+                <br>
+                <button class="ui teal button" id="add" type="submit">追加</button>
+            </div>
+        </form>
+        
+        {% for task in todo_items %}
+        <div id="task_wrap" class="ui segment">
+            <div class="task_box">
+                {% if task.complete %}
+                <a id="completed_btn" class="update_btn" href="/update/{{ task.id }}">&#10003;</a>
+                <p id="completed_text" class="ui big header">{{task}}</p>
+                {% else %}
+                <a id="not_completed_btn" class="update_btn" href="/update/{{ task.id }}">&#9679;</a>
+                <p id="not_completed_text" class="ui big header">{{task}}</p>
+                {% endif %}
+                <form action="/delete/{{task.id}}" method="POST" id="delete">
+                    {% csrf_token %}
+                    <button type="submit" id="delete_btn" class="change_btn" href="/delete/{{ todo.id }}">&#x1f5d1;</button>
+                    <a id="edit_btn" class="change_btn" href="/edit/{{task.id}}">&#x270e;</a>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer id="footer">
+        <p id="copy">
+            <a href="https://github.com/holasoynaoki" target="_blank">&copy; HolaSoyNaoki 2020</a>
+        </p>
+    </footer>
+</div>
+</body>
+</html>

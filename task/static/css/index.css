@@ -1,0 +1,137 @@
+body, html, .wrap {
+    padding: 0;
+    margin: 0;
+}
+
+.wrap {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    position: relative;
+    height: auto !important;
+}
+
+.main {
+    margin-bottom: 150px;
+}
+
+#title {
+    font-size: 36px;
+    margin-top: 50px;
+    color: #008080;
+}
+
+#add {
+    margin-top: 10px;
+}
+
+#task_wrap {
+    background: #fff;
+    transition: .1s;
+}
+
+#task_wrap:hover {
+    background: #eee;
+    transition: .1s;
+}
+
+.task_box {
+    display: flex;
+}
+
+#completed_btn {
+    color: #008080;
+    transition: 0.1s;
+    font-size: 25px;
+    margin: 5px 1px 10px 3px;
+}
+
+#completed_text {
+    margin: 5px;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: #777;
+}
+
+#not_completed_text {
+    margin: 5px;
+}
+
+.update_btn {
+    color: #000;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    margin: 3px 5px 12px 5px;
+    user-select: none;
+}
+
+.update_btn:hover {
+    color: #008080;
+    transition: 0.1s;
+}
+
+#delete {
+    margin-left: auto;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    transition: .1s;
+}
+
+#task_wrap:hover #delete {
+    opacity: 1;
+    transition: .1s;
+}
+
+#delete_btn {
+    border: none;
+    background: none;
+    font-size: 30px;
+}
+
+#delete_btn:hover {
+    background: none;
+    border: none;
+}
+
+#edit_btn {
+    font-size: 35px;
+    color: #008080;
+    margin-left: 5px;
+}
+
+.change_btn {
+    transition: .3s;
+}
+
+.change_btn:hover {
+    opacity: 0.5;
+    transition: .3s;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#copy {
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    margin: 0;
+}
+
+#copy a {
+    color: #555;
+}
+
+#copy a:hover {
+    color: #111;
+}
